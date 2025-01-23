@@ -16,7 +16,7 @@ function App() {
 
     const handleGoogleSignIn = async () => {
         try {
-            const url = 'http://localhost:3000/google';
+            const url = `${import.meta.env.VITE_BACKEND_URL}/google`;
             window.location.href = url; // Redirect to sign-in URL
         } catch (error) {
             console.error("Error signing in with Google:", error);
@@ -25,7 +25,7 @@ function App() {
 
     const fetchEvents = async () => {
         try {
-            const response = await fetch('http://localhost:3000/google/calendar/list');
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/google/calendar/list`);
             const data = await response.json();
             setEvents(data);
         } catch (error) {

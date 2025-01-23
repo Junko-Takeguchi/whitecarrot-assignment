@@ -33,7 +33,10 @@ app.get("/google/redirect", async (req, res) => {
     try {
         const { code } = req.query;
         const { tokens } = await oauth2Client.getToken(code);
-        oauth2Client.setCredentials(tokens);
+        oauth2Client.setCredentials({
+            access_token: tokens.access_token,
+            refresh_token: tokens.refresh_token,
+        });
 
         // Pass tokens to the client via cookies or query params
         res.redirect(`http://localhost:5173?authenticated=true`);

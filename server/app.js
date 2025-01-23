@@ -39,7 +39,7 @@ app.get("/google/redirect", async (req, res) => {
         });
 
         // Pass tokens to the client via cookies or query params
-        res.redirect(`http://localhost:5173?authenticated=true`);
+        res.redirect(`https://whitecarrot-assignment-phi.vercel.app/?authenticated=true`);
     } catch (error) {
         console.error("Error during Google OAuth redirect:", error);
         res.status(500).send("Authentication failed.");
